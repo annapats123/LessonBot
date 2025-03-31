@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LessonBot</title>
+    <style>
+        /* Εφαρμόζουμε το φόντο σε όλη τη σελίδα */
+        html, body {
+            height: 100%; /* Βεβαιώνεται ότι το φόντο καλύπτει όλη την ύψος της σελίδας */
+            margin: 0;
+            padding: 0;
+            background-image: url('BACKGROUND.jpg'); /* Εδώ είναι η εικόνα φόντου */
+            background-size: cover; /* Κάνει την εικόνα να καλύπτει όλη την οθόνη */
+            background-position: center center; /* Κεντράρει την εικόνα */
+            background-repeat: no-repeat; /* Αποτρέπει την επανάληψη της εικόνας */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Κεντράρει οριζόντια */
+            justify-content: center; /* Κεντράρει κάθετα */
+            text-align: center; /* Κεντράρει το κείμενο */
+        }
+        #webchat {
+            margin-top: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+        }
+        /* Στυλ για την εικόνα */
+        .chatbot-avatar {
+         width: 200px; /* Θέτουμε σταθερό πλάτος */
+         height: 200px; /* Θέτουμε σταθερό ύψος, για να δημιουργηθεί κυκλική εικόνα */
+         border-radius: 50%; /* Στρογγυλεμένο σχήμα */
+         object-fit: cover; /* Κάνει την εικόνα να γεμίζει τον κύκλο χωρίς παραμόρφωση */
+         margin-bottom: 20px;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Banner στην κορυφή -->
+    <div class="banner">
+        ΕΛΛΗΝΙΚΟ ΑΝΟΙΚΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ - Μεταπτυχιακή Εξειδίκευση στα Πληροφοριακά Συστήματα - ΠΛΣ Διπλωματική εργασία ΑΝΝΑ ΠΑΤΣΟΥΡΑΚΟΥ "Ανάπτυξη Πλατφόρμας για την Πληροφόρηση Φοιτητών" Επιβλέπων καθηγητής: Ευθύμιος Ταμπούρης - Καθηγητής Τμήματος Εφαρμοσμένης Πληροφορικής του ΠΑ.ΜΑΚ
+    </div>
+    <h1>Καλώς ήρθατε στον LessonBot!</h1>
+    <h2>Tον Ψηφιακό βοηθό του μαθήματος Ανάλυση και Σχεδίαση Συστημάτων.</h2>
+ 
+    <img src="lessonBot.jpg" alt="Chatbot Avatar" class="chatbot-avatar">  <!-- Εικόνα Avatar -->
+
+    <!-- WebChat Widget -->
+    <div id="webchat"></div> <!-- Εδώ θα εμφανιστεί το WebChat -->
+
+    <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"></script>
+    <script>
+      window.onload = function() {
+        WebChat.default({
+          title: "LessonBot",
+          subtitle: "Ρώτησέ με οτιδήποτε!",
+          initPayload: "/greet",
+          inputTextFieldHint: "Πληκτρολόγησε εδώ...",
+          socketUrl: "http://localhost:5005",
+          showMessageDate: true,
+          language: "el",
+          userMessageEvent: "user_uttered",
+          botMessageEvent: "bot_uttered",
+          params: { storage: "session" }
+        }, document.getElementById("webchat"));
+      };
+    </script>
+</body>
+</html>

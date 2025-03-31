@@ -1,0 +1,129 @@
+version: "3.1"
+
+stories:
+ 
+- story: The user asks for assignment info
+  steps:
+  - intent: ask_assignment_info
+  - action: utter_ask_assignment_info
+  - action: utter_ask_category_info  
+ 
+- story: The user selects "I'm in the first 4 years of study"
+  steps:
+  - intent: ask_undergraduate_info
+  - action: utter_ask_undergraduate_info
+  - action: utter_return
+  
+- story: The user selects "I have completed 4 years of study" and wishes to conduct group project
+  steps:
+  - intent: ask_graduate_info
+  - action: utter_ask_graduate_info
+  - action: utter_ask_question
+  
+- story: The user asks for the group project deadline
+  steps:
+  - intent: deadline_info 
+  - action: utter_deadline_info
+  - action: utter_return
+  
+- story: The user wants info about grading
+  steps: 
+  - intent: grade_info
+  - action: utter_grade_info 
+  - action: utter_return
+  
+- story: The user asks for the project content 
+  steps:
+  - intent: project_content
+  - action: utter_project_content_1
+  - action: utter_project_content_2
+  
+- story: The user asks for the prerequisite knowledge
+  steps: 
+  - intent: necessary_knowledge
+  - action: utter_necessary_knowledge
+  - action: utter_return
+   
+- story: The user asks for the main course books
+  steps:
+  - intent: book_info
+  - action: utter_book_info
+  - action: utter_return
+  
+- story: The user asks for extra bibliography
+  steps: 
+   - intent: ask_useful_book_info
+   - action: utter_ask_useful_book_info
+   - action: utter_return  
+  
+- story: The user asks info for group projects
+  steps:
+  - intent: ask_group_project_info
+  - action: utter_ask_group_project_info
+  - action: utter_return
+  
+- story: The user asks for plagiarism
+  steps:
+  - intent: ask_cheat_info
+  - action: utter_ask_cheat_info
+  - action: utter_return
+  
+- story: The user asks for Professors΄ contact info
+  steps:
+  - intent: professor_info
+  - action: utter_professor_info 
+  - action: utter_return  
+
+- story: The user asks for useful links
+  steps: 
+  - intent: ask_useful_link_info
+  - action: utter_ask_useful_link_info  
+  - action: utter_return
+  
+- story: The user asks for theory and lab info
+  steps:
+  - intent: ask_course_info
+  - action: utter_course_info
+  - action: utter_ask_course_syllabus
+ 
+- story: The user asks for the course syllabus
+  steps: 
+  - intent: course_syllabus
+  - action: utter_course_syllabus
+  - action: utter_return 
+  
+- story: The user thanks and submits evaluation
+  steps:
+  - intent: thank_you
+  - action: utter_thank_you
+  - action: utter_evaluation_question
+  - intent: affirm
+  - action: utter_chatbot_evaluation
+  - action: utter_return  
+ 
+- story: The user thans and declines evaluation
+  steps:
+  - intent: thank_you
+  - action: utter_thank_you
+  - action: utter_evaluation_question
+  - intent: deny 
+  - action: utter_return  
+  
+- story: The user says goodbye and submits evaluation
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: utter_evaluation_question
+  - intent: affirm
+  - action: utter_chatbot_evaluation
+  - action: utter_return
+  
+- story: The user says goodbye and doesn't submit evaluation
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: utter_evaluation_question
+  - intent: deny
+  - action: utter_return
+
+  
