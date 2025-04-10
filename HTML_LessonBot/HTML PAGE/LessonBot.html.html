@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LessonBot</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('BACKGROUND.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #webchat {
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        .chatbot-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        /* FAQ box styling */
+        .faq-box {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 15px;
+            width: 280px;
+            font-size: 14px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        .faq-box h3 {
+            margin-top: 0;
+            font-size: 16px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            background-color: #ecf0f1;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #d0d7de;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 8px 10px;
+            margin-top: 5px;
+            background-color: #f9f9f9;
+            border-left: 3px solid #2980b9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Banner -->
+    <div class="banner">
+        ΕΛΛΗΝΙΚΟ ΑΝΟΙΚΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ - Μεταπτυχιακή Εξειδίκευση στα Πληροφοριακά Συστήματα - ΠΛΣ Διπλωματική εργασία ΑΝΝΑ ΠΑΤΣΟΥΡΑΚΟΥ "Ανάπτυξη Πλατφόρμας για την Πληροφόρηση Φοιτητών" Επιβλέπων καθηγητής: Ευθύμιος Ταμπούρης - Καθηγητής Τμήματος Εφαρμοσμένης Πληροφορικής του ΠΑ.ΜΑΚ
+    </div>
+
+    <h1>Καλώς ήρθατε στον LessonBot!</h1>
+    <h2>Tον Ψηφιακό βοηθό του μαθήματος Ανάλυση και Σχεδίαση Συστημάτων.</h2>
+
+    <img src="lessonBot.jpg" alt="Chatbot Avatar" class="chatbot-avatar">
+
+    <!-- WebChat Widget -->
+    <div id="webchat"></div>
+
+    <!-- Συχνές Ερωτήσεις -->
+    <div class="faq-box">
+        <h3>❓ Συχνές Ερωτήσεις</h3>
+
+        <div class="faq-item">
+            <button class="faq-question">🗂 Που μπορώ να βρώ τα περιεχόμενα του μαθήματος;</button>
+            <div class="faq-answer">το περίγραμμα του μαθήματος, μπορείτε να βρείτε στο ακόλουθο link: https://bit.ly/3FXwDMq</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">📅 Πότε ανακοινώνονται οι βάθμοί του μαθήματος;</button>
+            <div class="faq-answer">Μετά το πέρας των εξετάσεων, οι βαθμοί εξετάσεων και εργασιών ανακοινώνονται στο σύστημα Open e-Class ως πρόσθετο στοιχείο ανατροφοδότησης σχετικά με την τελική επίδοση των φοιτητών. </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">📝 Πώς βαθμολογούμαι στο μάθημα;</button>
+            <div class="faq-answer">Η τελική βαθμολογία προκύπτει από την ομαδική εργασία (50%) και την τελική εξέταση (50%).</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">📚 Πού μπορώ να βρω τις διαφάνειες του μαθήματος;</button>
+            <div class="faq-answer">Οι διαφάνειες αναρτώνται στο e-class του μαθήματος ή διανέμονται από τον διδάσκοντα.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">📨 Πώς επικοινωνώ με τον διδάσκοντα;</button>
+            <div class="faq-answer">Μπορείτε να στείλετε email ή να επικοινωνήσετε κατά τις ώρες γραφείου όπως ανακοινώνονται.</div>
+        </div>
+       
+        
+        <div class="faq-item">
+            <button class="faq-question"> 📅Ποια είναι η προθεσμία δήλωσης της ομάδας;</button>
+            <div class="faq-answer"> Η προθεσμία δήλωσης της ομάδας είναι αυστηρά έως τις 31/3/2025.</div> 
+        </div>
+
+
+        <div class="faq-item">
+            <button class="faq-question"> Πόσα μέλη πρέπει να περιλαμβάνει η κάθε ομάδα;</button>
+            <div class="faq-answer"> Οι ομάδες πρέπει να αποτελούνται αυστηρά από 5 άτομα. Δεν επιτρέπονται ομάδες με 4 ή 6 μέλη</div> 
+        </div>
+ 
+
+       <div class="faq-item">
+            <button class="faq-question">📝 Πως μπορώ να δηλωθώ σε ομάδα;</button>
+            <div class="faq-answer">Η δήλωση ομάδας πραγματοποιείται στον σύνδεσμο:https://bit.ly/4j4KCPn
+       </div>      
+
+
+       <div class="faq-item">
+            <button class="faq-question">📝 Πως μπορώ να γραφτώ στο Open eclass;</button>
+            <div class="faq-answer">Για οδηγίες σχετικά με την πλατφόρμα Open eclass, ακολουθήστε τoν σύνδεσμο:https://bit.ly/42DDjIo</div>      
+
+        </div>
+
+
+        <div class="faq-item">
+            <button class="faq-question"> 📅Πως μπορώ να δω το πρόγραμμα του μαθήματος;</button>
+            <div class="faq-answer">Το πρόγραμμα διδασκαλίας καθώς και τις αίθουσες πραγματοποίησης των μαθημάτων, μπορείτε να τις βρείτε στο link: https://www.uom.gr/dai/programma-didaskalias-13140 </div>     
+        </div>
+       
+
+       <div class="faq-item">
+            <button class="faq-question"> 📝Τι περιλαμβάνει η τελική εξεταση;</button>
+            <div class="faq-answer">Η Τελική Εξέταση περιλαμβάνει ερωτήσεις πολλαπλής επιλογής και/ή ερωτήσεις ανάπτυξης και/ή ασκήσεις.</div>
+        </div>
+
+
+       <div class="faq-item">
+            <button class="faq-question">📢 Πότε ανακοινώνονται οι ημερομηνίες των εξετάσεων;</button>
+            <div class="faq-answer">Μπορείτε να τις βρείτε το πρόγραμμα των εξετάσεων στο link:https://www.uom.gr/dai/programma-eksetaseon.
+Στο ακαδημαϊκό ημερολόγιο, που είναι διαθέσιμο στο ακόλουθο link:https://www.uom.gr/dai/akadhmaiko-hmerologio, θα δείτε τις ημερομηνίες έναρξης και λήξης της εκάστοτε εξεταστικής περιόδου.</div>
+        </div>
+
+
+     <div class="faq-item">
+            <button class="faq-question">📝Έχει παρέλθει η προθεσμία εγγραφής σε ομάδα. Πως μπορώ να δηλωθώ σε ομάδα;</button>
+            <div class="faq-answer">Αν δεν έχετε εγγραφεί σε ομάδα μέχρι τη λήξη της προθεσμίας, παρακαλείστε να επικοινωνήσετε με τους διδάσκοντες.</div>
+      </div>
+
+</div>
+
+
+    <!-- Rasa WebChat script -->
+    <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"></script>
+    <script>
+        window.onload = function () {
+            WebChat.default({
+                title: "LessonBot",
+                subtitle: "Ρώτησέ με οτιδήποτε!",
+                initPayload: "/greet",
+                inputTextFieldHint: "Πληκτρολόγησε εδώ...",
+                socketUrl: "http://localhost:5005",
+                showMessageDate: true,
+                language: "el",
+                userMessageEvent: "user_uttered",
+                botMessageEvent: "bot_uttered",
+                params: { storage: "session" }
+            }, document.getElementById("webchat"));
+        };
+    </script>
+
+    <!-- JavaScript για εμφάνιση/απόκρυψη απαντήσεων -->
+    <script>
+        const questions = document.querySelectorAll('.faq-question');
+
+        questions.forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+
+                // Κλείνει όλες τις άλλες απαντήσεις
+                document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+
+                // Αν δεν ήταν ανοιχτή, την ανοίγει
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
