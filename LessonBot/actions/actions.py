@@ -28,7 +28,7 @@ class ActionSendWelcomeMessage(Action):
             text="✏️Πληκτρολόγησε την ερώτησή σου ή επίλεξε μία από τις διαθέσιμες επιλογές παρακάτω.",
             buttons=[
                 {"title": "Κανονισμός Εργασιών", "payload": "/ask_assignment_info"},
-                {"title": "Θεωρία & Εργατήριο", "payload": "/ask_course_info"},
+                {"title": "Θεωρία & Εργαστήριο", "payload": "/ask_course_info"},
                 {"title": "Προθεσμίες Υποβολής εργασιών", "payload": "/deadline_info"},
                 {"title": "Οδηγίες Δήλωσης Ομάδας", "payload": "/ask_group_project_info"},
                 {"title": "Αντικείμενο Ομαδικής Εργασίας", "payload": "/project_content"},
