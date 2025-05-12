@@ -1,0 +1,101 @@
+﻿version: "3.1"
+
+rules:
+    
+- rule: Greet the user automatically
+  steps:
+  - intent: greet  
+  - action: action_send_welcome_message
+ 
+  
+- rule: The user asks for the main menu
+  steps:
+  - intent: return_to_main_menu
+  - action: utter_return_to_main_menu
+  
+- rule: The user faces problems with the group project
+  steps:
+  - intent: group_project_problem
+  - action: utter_group_project_problem  
+  - action: utter_return
+
+- rule: The user asks how to submit the group project
+  steps:
+  - intent: project_submission
+  - action: utter_project_submission
+  - action: utter_return
+    
+- rule: The user missed the group project signup
+  steps:
+  - intent: missed_group_signup
+  - action: utter_missed_group_signup
+  - action: utter_return
+  
+- rule: The user is about to graduate and asks if he/she should sign up for a group project
+  steps:
+  - intent: graduation
+  - action: utter_graduation
+  - action: utter_return
+  
+- rule: The user asks about the essay structure
+  steps: 
+  - intent: essay_structure
+  - action: utter_essay_structure
+  - action: utter_return  
+  
+- rule: The user asks about course regrading
+  steps:
+  - intent: course_regrading
+  - action: utter_course_regrading
+  - action: utter_return  
+  
+- rule: Final exam participation right
+  steps:
+  - intent: course_sign_up
+  - action: utter_course_sign_up
+  - action: utter_return  
+- rule: The user asks if the course has prerequisites
+  steps:
+   - intent: course_prerequisite
+   - action: utter_course_prerequisite
+   - action: utter_return
+     
+- rule: The user asks for the chatbot΄s communication language
+  steps:
+  - intent: ask_language_info
+  - action: utter_ask_language_info
+  - action: utter_return  
+  
+- rule: The user asks for individual project
+  steps:
+  - intent: individual_project
+  - action: utter_individual_project
+  - action: utter_return
+    
+
+- rule: Handle out of scope queries
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope  
+  - action: utter_return
+  
+- rule: The user wants to evaluate the chatbot
+  steps:
+  - intent: chatbot_evaluation
+  - action: utter_chatbot_evaluation
+  - action: utter_return  
+
+- rule: Handle fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default_fallback
+  - action: utter_return
+  
+
+    
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - action: utter_return
+
