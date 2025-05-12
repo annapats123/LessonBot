@@ -16,7 +16,7 @@ Specifically, LessonBot can:
 
 •	Offer updates on course schedules and textbook requirements
 
-The chatbot is focused solely on administrative support, not on teaching or tutoring, and is available 24/7 through a user-friendly web interface
+The chatbot is focused solely on administrative support, not on teaching or tutoring, and is available 24/7 through a user-friendly web interface.
 
 
 How to train the Chatbot
